@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CurriculosIA{% endblock %}</title>
+    
+    <!-- TailwindCSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #0078D4 0%, #6B69D6 100%);
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900">
+    <!-- Header Simples -->
+    <header class="bg-white dark:bg-gray-800 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="h-10 w-10 rounded-lg gradient-bg flex items-center justify-center">
+                        <i class="fas fa-brain text-white text-xl"></i>
+                    </div>
+                    <span class="ml-2 text-xl font-bold text-gray-900 dark:text-white">
+                        Curriculos<span class="text-blue-600">IA</span>
+                    </span>
+                </div>
+                <nav class="flex space-x-4">
+                    <a href="/" class="text-gray-700 dark:text-gray-200 hover:text-blue-600">Home</a>
+                    <a href="/planos/" class="text-gray-700 dark:text-gray-200 hover:text-blue-600">Planos</a>
+                    <a href="/usuarios/login/" class="text-gray-700 dark:text-gray-200 hover:text-blue-600">Login</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo -->
+    <main>
+        {% block content %}
+        <!-- O conteúdo das páginas será inserido aqui -->
+        {% endblock %}
+    </main>
+
+    <!-- Footer Simples -->
+    <footer class="bg-gray-100 dark:bg-gray-800 mt-12">
+        <div class="max-w-7xl mx-auto px-4 py-6">
+            <p class="text-center text-gray-600 dark:text-gray-300">
+                &copy; 2023 CurriculosIA. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
