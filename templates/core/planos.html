@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planos - Curriculum IA</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .planos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .plano-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .plano-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .plano-card.gratis {
+            border: 3px solid #4CAF50;
+        }
+
+        .plano-card.premium {
+            border: 3px solid #FF9800;
+        }
+
+        .plano-card.empresarial {
+            border: 3px solid #9C27B0;
+        }
+
+        .plano-card.enterprise {
+            border: 3px solid #2196F3;
+        }
+
+        .plano-titulo {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .plano-preco {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #667eea;
+        }
+
+        .plano-preco .gratis {
+            color: #4CAF50;
+        }
+
+        .plano-preco .periodo {
+            font-size: 0.4em;
+            color: #666;
+        }
+
+        .plano-descricao {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .plano-recursos {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .recurso-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .recurso-item:before {
+            content: "✓";
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .btn-plano {
+            background: #667eea;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-plano:hover {
+            background: #5a67d8;
+        }
+
+        .btn-gratis {
+            background: #4CAF50;
+        }
+
+        .btn-gratis:hover {
+            background: #45a049;
+        }
+
+        .destaque {
+            background: #ffeb3b;
+            color: #333;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Escolha o Plano Perfeito</h1>
+            <p>Otimize sua busca por emprego com nossa tecnologia de IA</p>
+        </div>
+
+        <div class="planos-grid">
+            <!-- Plano FREE -->
+            <div class="plano-card gratis">
+                <div class="plano-titulo">FREE</div>
+                <div class="plano-preco">
+                    <span class="gratis">R$ 0</span>
+                    <span class="periodo">/para sempre</span>
+                </div>
+                <div class="plano-descricao">
+                    Ideal para quem está começando
+                </div>
+
+                <div class="plano-recursos">
+                    <div class="recurso-item">3 análises de currículo por mês</div>
+                    <div class="recurso-item">Compatibilidade básica com vagas</div>
+                    <div class="recurso-item">Relatório simplificado</div>
+                    <div class="recurso-item">Suporte por e-mail</div>
+                    <div class="recurso-item">Acesso à comunidade</div>
+                </div>
+
+                <button class="btn-plano btn-gratis">Começar Grátis</button>
+            </div>
+
+            <!-- Plano PREMIUM -->
+            <div class="plano-card premium">
+                <div class="plano-titulo">PREMIUM <span class="destaque">POPULAR</span></div>
+                <div class="plano-preco">R$ 29,90<span class="periodo">/mês</span></div>
+                <div class="plano-descricao">
+                    Para quem busca resultados rápidos
+                </div>
+
+                <div class="plano-recursos">
+                    <div class="recurso-item">50 análises de currículo por mês</div>
+                    <div class="recurso-item">Análise detalhada com IA</div>
+                    <div class="recurso-item">Compatibilidade avançada</div>
+                    <div class="recurso-item">Relatório completo personalizado</div>
+                    <div class="recurso-item">Dicas de melhoria específicas</div>
+                    <div class="recurso-item">Suporte prioritário</div>
+                    <div class="recurso-item">Exportação em PDF</div>
+                </div>
+
+                <button class="btn-plano">Assinar Premium</button>
+            </div>
+
+            <!-- Plano EMPRESARIAL -->
+            <div class="plano-card empresarial">
+                <div class="plano-titulo">EMPRESARIAL</div>
+                <div class="plano-preco">R$ 99,90<span class="periodo">/mês</span></div>
+                <div class="plano-descricao">
+                    Para recrutadores e empresas
+                </div>
+
+                <div class="plano-recursos">
+                    <div class="recurso-item">200 análises por mês</div>
+                    <div class="recurso-item">Análise em lote (até 10 currículos)</div>
+                    <div class="recurso-item">Dashboard empresarial</div>
+                    <div class="recurso-item">Relatórios comparativos</div>
+                    <div class="recurso-item">Ranking de candidatos</div>
+                    <div class="recurso-item">Suporte dedicado 24/7</div>
+                    <div class="recurso-item">API de integração</div>
+                    <div class="recurso-item">Treinamento da equipe</div>
+                </div>
+
+                <button class="btn-plano">Contratar Empresarial</button>
+            </div>
+
+            <!-- Plano ENTERPRISE -->
+            <div class="plano-card enterprise">
+                <div class="plano-titulo">ENTERPRISE</div>
+                <div class="plano-preco">Sob consulta</div>
+                <div class="plano-descricao">
+                    Solução completa para grandes empresas
+                </div>
+
+                <div class="plano-recursos">
+                    <div class="recurso-item">Análises ilimitadas</div>
+                    <div class="recurso-item">Processamento em massa</div>
+                    <div class="recurso-item">IA personalizável</div>
+                    <div class="recurso-item">Integração com ATS</div>
+                    <div class="recurso-item">Relatórios personalizados</div>
+                    <div class="recurso-item">Suporte técnico dedicado</div>
+                    <div class="recurso-item">Implantaçāo on-premise</div>
+                    <div class="recurso-item">Consultoria especializada</div>
+                </div>
+
+                <button class="btn-plano">Falar com Vendas</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

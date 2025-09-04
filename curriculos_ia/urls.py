@@ -1,35 +1,27 @@
-"""
-URL configuration for curriculos_ia project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+from django.contrib import messages
+
+# View simples para cadastro
+def cadastro_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Conta criada para {username}!')
+            return redirect('login')
+    else:
+        form = UserCreationForm()
+    return render(request, 'registration/cadastro.html', {'form': form})
 
 urlpatterns = [
-    # Painel administrativo do Django
     path('admin/', admin.site.urls),
-
-    # URLs do app core (páginas principais)
     path('', include('core.urls', namespace='core')),
-
-    # URLs do app usuarios (autenticação e perfis)
-    path('usuarios/', include('usuarios.urls', namespace='usuarios')),
+    path('usuarios/login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
+    path('usuarios/logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('usuarios/cadastro/', cadastro_view, name='cadastro'),  # ← URL DE CADASTRO
 ]
-
-# Servir arquivos de mídia durante o desenvolvimento
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

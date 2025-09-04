@@ -1,12 +1,12 @@
+# core/urls.py (alternativa com import absoluto)
 from django.urls import path
-from . import views
+from core import views  # ← Import absoluto
 
-app_name = 'core'  # Namespace para as URLs
+app_name = 'core'
 
 urlpatterns = [
-    path('', views.home, name='home'),  # Página inicial
-    path('dashboard/', views.dashboard, name='dashboard'),  # Dashboard
-
-
-
+    path('', views.home, name='home'),
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('planos/', views.planos, name='planos'),
+    path('exportar-cv/', views.exportar_cv, name='exportar_cv'),
 ]

@@ -141,10 +141,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
 CRISPY_TEMPLATE_PACK = "tailwind"
 
-# Authentication settings
-LOGIN_REDIRECT_URL = 'core:dashboard'
-LOGOUT_REDIRECT_URL = 'core:home'
-LOGIN_URL = 'usuarios:login'
+# Authentication settings - CORRIGIDO!
+LOGIN_REDIRECT_URL = '/dashboard/'
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/usuarios/login/'
 
 # Email configuration (para desenvolvimento)
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
